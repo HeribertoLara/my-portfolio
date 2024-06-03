@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Variables de color
+$foreground-color-light: 255, 255, 255; // Blanco para texto
+$background-start-color-light: 214, 219, 220;
+$background-end-color-light: 255, 255, 255;
+
+$foreground-color-dark: 255, 255, 255; // Blanco para texto
+$background-start-color-dark: 0, 0, 0;
+$background-end-color-dark: 0, 0, 0;
+
+// Variables de fuentes
+$font-family-primary: 'Helvetica, Arial, sans-serif';
+$font-size-base: 16px;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Variables de espaciado
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+
+// Variables de bordes
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 16px;
+
+// Variables de sombra
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+// Uso de variables en modo claro
+:root {
+  --foreground-color: #{$foreground-color-light};
+  --background-start-color: #{$background-start-color-light};
+  --background-end-color: #{$background-end-color-light};
+}
+
+// Uso de variables en modo oscuro
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-color: #{$foreground-color-dark};
+    --background-start-color: #{$background-start-color-dark};
+    --background-end-color: #{$background-end-color-dark};
+  }
+}
+
+// Ejemplo de uso de variables en estilos
+body {
+  color: rgb(var(--foreground-color));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-color))
+  )
+  rgb(var(--background-start-color));
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
